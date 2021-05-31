@@ -1,0 +1,51 @@
+<html>
+<head>
+<!--<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+/**
+ * Determine the mobile operating system.
+ * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+ *
+ * @returns {String}
+ */
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+    var os = getMobileOperatingSystem();
+    console.log("os:" + os);
+
+    os = 'Android'; //for debug purpose
+
+    if (os == 'Android') {
+    	location.href = 'android.html';
+    } else if (os == 'iOS') {
+    	location.href = 'ios.html';
+    }
+
+
+});
+</script>
+</head>
+<body>The page will redirect to the download page automatically.</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Android</title>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script>
+		$( document ).ready(function() {
+			console.log('download now');
+			//location.href = 'files/epod_latest.apk';
+
+			var windowWidth = $(window).width();
+			console.log("window width: " + windowWidth);
+			$('#steps').width(windowWidth);
+		});
+	</script>
+	<style>
+		body, img { padding:0 !important; margin:0 !important; }
+	</style>
+</head>
+	<body>
+		<img id="steps" src="images/android.png" />
+	</body>
+</html>
